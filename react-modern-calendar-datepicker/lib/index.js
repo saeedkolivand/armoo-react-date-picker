@@ -835,12 +835,7 @@ var ad , getCalendarDate , monthNumber, yearNumber ;
 var Calendar = function (e) {
     ad = e.adviserID;
     getCalendarDate=e.getCalendarDate;
-    if (!monthNumber && !yearNumber) {
-        monthNumber = moment().locale('fa').format('MM');
-        yearNumber = moment().locale('fa').format('YYYY');
-        console.log("month number in if ==>", monthNumber)
-        console.log("year number in if ==>", yearNumber)
-    }
+
 
     var t = e.value, r = e.onChange, n = e.onDisabledDayError, a = e.calendarClassName, o = e.calendarTodayClassName,
         i = e.calendarSelectedDayClassName, c = e.calendarRangeStartClassName, s = e.calendarRangeBetweenClassName,
@@ -882,19 +877,12 @@ var Calendar = function (e) {
         activeDate: j,
         onMonthChange: function (e) {
 
-            console.log("e before if", j)
+            console.log("e before if",y)
 
-            if (e === 'PREVIOUS'){
-                monthNumber = parseInt(j.month) - 1;
-                yearNumber = parseInt(j.year);
-                getCalendarDate(monthNumber, yearNumber);
-                console.log("previous -=1 ==>", monthNumber, yearNumber);
-
-            }else if  (e === 'NEXT'){
+             if  (e === 'NEXT' && y > 12) {
                 monthNumber = parseInt(j.month) + 1;
-                yearNumber = parseInt(j.year);
+                yearNumber = j.year ? j.year : j.year + 1;
                 getCalendarDate(monthNumber, yearNumber);
-                console.log("previous -=1 ==>", monthNumber, yearNumber);
             }
 
 
@@ -911,7 +899,7 @@ var Calendar = function (e) {
         isOpen: E.isMonthSelectorOpen,
         activeDate: j,
         onMonthSelect: function (e) {
-            monthNumber = e;
+            monthNumber = e < 10 ? '0'+ e : e;
 
             console.log("onMonthSelect month number in lib js" , monthNumber);
             T(_objectSpread2({}, E, {activeDate: _objectSpread2({}, j, {month: e}), isMonthSelectorOpen: !1}))
@@ -923,6 +911,8 @@ var Calendar = function (e) {
         isOpen: E.isYearSelectorOpen,
         activeDate: j,
         onYearSelect: function (e) {
+            yearNumber = e
+            console.log("onYearSelect year number in lib js" , yearNumber);
             T(_objectSpread2({}, E, {activeDate: _objectSpread2({}, j, {year: e}), isYearSelectorOpen: !1}))
         },
         selectorStartingYear: _,
