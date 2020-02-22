@@ -877,15 +877,11 @@ var Calendar = function (e) {
         activeDate: j,
         onMonthChange: function (e) {
 
-            console.log("e before if",y)
-
              if  (e === 'NEXT' && y > 12) {
                 monthNumber = parseInt(j.month) + 1;
                 yearNumber = j.year ? j.year : j.year + 1;
                 getCalendarDate(monthNumber, yearNumber);
             }
-
-
 
             T(_objectSpread2({}, E, {monthChangeDirection: e}))
         },
@@ -899,10 +895,11 @@ var Calendar = function (e) {
         isOpen: E.isMonthSelectorOpen,
         activeDate: j,
         onMonthSelect: function (e) {
+
             monthNumber = e < 10 ? '0'+ e : e;
 
-            console.log("onMonthSelect month number in lib js" , monthNumber);
             T(_objectSpread2({}, E, {activeDate: _objectSpread2({}, j, {month: e}), isMonthSelectorOpen: !1}))
+
         },
         maximumDate: y,
         minimumDate: m,
@@ -911,9 +908,10 @@ var Calendar = function (e) {
         isOpen: E.isYearSelectorOpen,
         activeDate: j,
         onYearSelect: function (e) {
+
             yearNumber = e
-            console.log("onYearSelect year number in lib js" , yearNumber);
             T(_objectSpread2({}, E, {activeDate: _objectSpread2({}, j, {year: e}), isYearSelectorOpen: !1}))
+
         },
         selectorStartingYear: _,
         selectorEndingYear: h,
@@ -1138,10 +1136,6 @@ var localeLanguages = {
         className: "Calendar__monthArrowWrapper -left",
         onClick: function () {
 
-            // monthNumber += 1
-            // yearNumber = l.year;
-            // getCalendarDate(monthNumber, yearNumber);
-            // console.log("getCalendarDate() ==>", getCalendarDate)
             R("NEXT")
         },
         "aria-label": v,
