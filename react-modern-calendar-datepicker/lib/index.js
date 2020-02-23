@@ -1,4 +1,4 @@
-"use strict";
+"user-strict"
 
 function _interopDefault(e) {
     return e && "object" == typeof e && "default" in e ? e.default : e
@@ -6,7 +6,8 @@ function _interopDefault(e) {
 
 Object.defineProperty(exports, "__esModule", {value: !0});
 var React = require("react"), React__default = _interopDefault(React);
-var moment = require("jalali-moment")
+var moment = require("jalali-moment");
+// var getData = require("api")
 
 function _defineProperty(e, t, r) {
     return t in e ? Object.defineProperty(e, t, {
@@ -830,7 +831,7 @@ function mod(e, t) {
     return e - ~~(e / t) * t
 }
 
-var ad , getCalendarDate , monthNumber, yearNumber ;
+var ad , getCalendarDate , monthNumber, yearNumber, dateJ ;
 
 var Calendar = function (e) {
     ad = e.adviserID;
@@ -877,10 +878,15 @@ var Calendar = function (e) {
         activeDate: j,
         onMonthChange: function (e) {
 
-             if  (e === 'NEXT' && y > 12) {
-                monthNumber = parseInt(j.month) + 1;
-                yearNumber = j.year ? j.year : j.year + 1;
-                getCalendarDate(monthNumber, yearNumber);
+            dateJ = j;
+
+            if (e === 'NEXT', dateJ) {
+                monthNumber = dateJ.month ? dateJ.month : parseInt(dateJ.month) + 1;
+                yearNumber = dateJ.year ? dateJ.year : parseInt(dateJ.year) + 1;
+            } else if (e === 'PREVIOUS', dateJ) {
+                monthNumber = parseInt(dateJ.month) - 1;
+                console.log(monthNumber)
+                yearNumber = dateJ.year ? dateJ.year : parseInt(dateJ.year) - 1;
             }
 
             T(_objectSpread2({}, E, {monthChangeDirection: e}))
@@ -1125,6 +1131,12 @@ var localeLanguages = {
     }, React__default.createElement("button", {
         className: "Calendar__monthArrowWrapper -right", onClick: function () {
 
+            dateJ = a;
+
+            monthNumber = dateJ.month - 1;
+            yearNumber = dateJ.year;
+            getCalendarDate(monthNumber, yearNumber)
+            // console.log("prev month and year =>", monthNumber, yearNumber)
 
             R("PREVIOUS")
         }, "aria-label": S, type: "button", disabled: C
@@ -1132,9 +1144,17 @@ var localeLanguages = {
         className: "Calendar__monthYearContainer",
         ref: d,
         "data-testid": "month-year-container"
-    }, " ", w), React__default.createElement("button", {
+    }, " ", w), React__default.createElement("button", {
         className: "Calendar__monthArrowWrapper -left",
         onClick: function () {
+            dateJ = a;
+
+            console.log(h)
+
+            monthNumber = dateJ.month + 1;
+            yearNumber = dateJ.year;
+            getCalendarDate(monthNumber, yearNumber)
+            // console.log("next month and year =>", monthNumber, yearNumber)
 
             R("NEXT")
         },
@@ -1412,7 +1432,9 @@ Calendar.defaultProps = {
     slideAnimationDuration: propTypes.string,
     minimumDate: propTypes.shape(DAY_SHAPE),
     maximumDate: propTypes.shape(DAY_SHAPE),
-    locale: propTypes.oneOfType([propTypes.oneOf(["en", "fa"]), LOCALE_SHAPE])
+    locale: propTypes.oneOfType([propTypes.oneOf(["en", "fa"]), LOCALE_SHAPE]),
+    monthNumber: propTypes.string,
+    yearNumber: propTypes.string,
 };
 var DatePickerInput = React__default.forwardRef((function (e, t) {
     var r = e.value, n = e.inputPlaceholder, a = e.inputClassName, o = e.formatInputText, i = e.renderInput,
