@@ -31,9 +31,7 @@ export interface CalendarProps<TValue extends Value> {
   calendarRangeBetweenClassName?: string;
   calendarRangeEndClassName?: string;
   adviserID?: number;
-  getCalendarDate?: any;
-  monthNumber?:number;
-  yearNumber?:number;
+  getCalendarDate?: number;
 }
 
 export function Calendar(props: Optional<CalendarProps<Day>, 'value'>): React.ReactElement;
