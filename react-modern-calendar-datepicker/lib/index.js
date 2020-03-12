@@ -694,10 +694,10 @@ var factoryWithThrowingShims = function () {
             var t = reactIs;
             e.exports = factoryWithTypeCheckers(t.isElement, !0)
         } else e.exports = factoryWithThrowingShims()
-    })), PERSIAN_NUMBERS = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"],
-    PERSIAN_MONTHS = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"],
+    })), PERSIAN_NUMBERS = ["Û°", "Û±", "Û²", "Û³", "Û´", "Ûµ", "Û¶", "Û·", "Û¸", "Û¹"],
+    PERSIAN_MONTHS = ["ÙØ±ÙˆØ±Ø¯ÛŒÙ†", "Ø§Ø±Ø¯ÛŒØ¨Ù‡Ø´Øª", "Ø®Ø±Ø¯Ø§Ø¯", "ØªÛŒØ±", "Ù…Ø±Ø¯Ø§Ø¯", "Ø´Ù‡Ø±ÛŒÙˆØ±", "Ù…Ù‡Ø±", "Ø¢Ø¨Ø§Ù†", "Ø¢Ø°Ø±", "Ø¯ÛŒ", "Ø¨Ù‡Ù…Ù†", "Ø§Ø³ÙÙ†Ø¯"],
     GREGORIAN_MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-    PERSIAN_WEEK_DAYS = ["شنبه", "یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنجشنبه", "جمعه"],
+    PERSIAN_WEEK_DAYS = ["Ø´Ù†Ø¨Ù‡", "ÛŒÚ©Ø´Ù†Ø¨Ù‡", "Ø¯ÙˆØ´Ù†Ø¨Ù‡", "Ø³Ù‡ Ø´Ù†Ø¨Ù‡", "Ú†Ù‡Ø§Ø±Ø´Ù†Ø¨Ù‡", "Ù¾Ù†Ø¬Ø´Ù†Ø¨Ù‡", "Ø¬Ù…Ø¹Ù‡"],
     GREGORIAN_WEEK_DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], DAY_SHAPE = {
         year: propTypes.number.isRequired,
         month: propTypes.number.isRequired,
@@ -1000,16 +1000,16 @@ var localeLanguages = {
                 return PERSIAN_NUMBERS[Number(e)]
             })).join("")
         },
-        nextMonth: "ماه بعد",
-        previousMonth: "ماه قبل",
-        openMonthSelector: "نمایش انتخابگر ماه",
-        openYearSelector: "نمایش انتخابگر سال",
-        closeMonthSelector: "بستن انتخابگر ماه",
-        closeYearSelector: "بستن انتخابگر ماه",
-        from: "از",
-        to: "تا",
-        defaultPlaceholder: "انتخاب...",
-        digitSeparator: "،",
+        nextMonth: "Ù…Ø§Ù‡ Ø¨Ø¹Ø¯",
+        previousMonth: "Ù…Ø§Ù‡ Ù‚Ø¨Ù„",
+        openMonthSelector: "Ù†Ù…Ø§ÛŒØ´ Ø§Ù†ØªØ®Ø§Ø¨Ú¯Ø± Ù…Ø§Ù‡",
+        openYearSelector: "Ù†Ù…Ø§ÛŒØ´ Ø§Ù†ØªØ®Ø§Ø¨Ú¯Ø± Ø³Ø§Ù„",
+        closeMonthSelector: "Ø¨Ø³ØªÙ† Ø§Ù†ØªØ®Ø§Ø¨Ú¯Ø± Ù…Ø§Ù‡",
+        closeYearSelector: "Ø¨Ø³ØªÙ† Ø§Ù†ØªØ®Ø§Ø¨Ú¯Ø± Ù…Ø§Ù‡",
+        from: "Ø§Ø²",
+        to: "ØªØ§",
+        defaultPlaceholder: "Ø§Ù†ØªØ®Ø§Ø¨...",
+        digitSeparator: "ØŒ",
         yearLetterSkip: -2,
         isRtl: !0
     }
@@ -1421,6 +1421,7 @@ Calendar.defaultProps = {
     locale: "en",
     value: null,
     adviserID: null,
+    getCalendarDay: null,
 }, Calendar.propTypes = {
     value: propTypes.oneOfType([propTypes.shape(DAY_SHAPE), propTypes.shape({
         from: propTypes.shape(DAY_SHAPE),
