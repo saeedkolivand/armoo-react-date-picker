@@ -32,6 +32,7 @@ export interface CalendarProps<TValue extends Value> {
   calendarRangeEndClassName?: string;
   adviserID?: number;
   getCalendarDate?: number;
+  getCalendarDay?: number;
 }
 
 export function Calendar(props: Optional<CalendarProps<Day>, 'value'>): React.ReactElement;
