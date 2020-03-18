@@ -1134,9 +1134,14 @@ var localeLanguages = {
             dateJ = a;
 
             monthNumber = dateJ.month - 1;
-            yearNumber = dateJ.year;
-            getCalendarDate(monthNumber, yearNumber)
-            // console.log("prev month and year =>", monthNumber, yearNumber)
+            if (monthNumber !== 00) {
+
+                yearNumber = dateJ.year;
+                getCalendarDate(monthNumber, yearNumber)
+            } else if (monthNumber === 00) {
+                yearNumber = dateJ.year;
+                getCalendarDate(12, yearNumber - 1)
+            }
 
             R("PREVIOUS")
         }, "aria-label": S, type: "button", disabled: C
@@ -1147,14 +1152,18 @@ var localeLanguages = {
     }, " ", w), React__default.createElement("button", {
         className: "Calendar__monthArrowWrapper -left",
         onClick: function () {
+
             dateJ = a;
 
-            console.log(h)
-
             monthNumber = dateJ.month + 1;
-            yearNumber = dateJ.year;
-            getCalendarDate(monthNumber, yearNumber)
-            // console.log("next month and year =>", monthNumber, yearNumber)
+            if (monthNumber !== 13) {
+
+                yearNumber = dateJ.year;
+                getCalendarDate(monthNumber, yearNumber)
+            } else if (monthNumber === 13) {
+                yearNumber = dateJ.year;
+                getCalendarDate(01, yearNumber + 1)
+            }
 
             R("NEXT")
         },
