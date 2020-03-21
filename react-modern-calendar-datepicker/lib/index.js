@@ -1203,6 +1203,9 @@ var localeLanguages = {
     React.useEffect((function () {
         var e = o ? "add" : "remove";
         c.current.classList[e]("-open")
+        monthNumber = t.month;
+        yearNumber = t.year;
+        getCalendarDate(monthNumber, yearNumber)
     }), [o]);
     var s = useLocaleUtils(i), l = s.getMonthNumber, u = s.isBeforeDate, p = useLocaleLanguage(i).months;
     return React__default.createElement("div", _extends({
