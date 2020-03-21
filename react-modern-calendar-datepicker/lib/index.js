@@ -1000,16 +1000,16 @@ var localeLanguages = {
                 return PERSIAN_NUMBERS[Number(e)]
             })).join("")
         },
-        nextMonth: "Ù…Ø§Ù‡ Ø¨Ø¹Ø¯",
-        previousMonth: "Ù…Ø§Ù‡ Ù‚Ø¨Ù„",
-        openMonthSelector: "Ù†Ù…Ø§ÛŒØ´ Ø§Ù†ØªØ®Ø§Ø¨Ú¯Ø± Ù…Ø§Ù‡",
-        openYearSelector: "Ù†Ù…Ø§ÛŒØ´ Ø§Ù†ØªØ®Ø§Ø¨Ú¯Ø± Ø³Ø§Ù„",
-        closeMonthSelector: "Ø¨Ø³ØªÙ† Ø§Ù†ØªØ®Ø§Ø¨Ú¯Ø± Ù…Ø§Ù‡",
-        closeYearSelector: "Ø¨Ø³ØªÙ† Ø§Ù†ØªØ®Ø§Ø¨Ú¯Ø± Ù…Ø§Ù‡",
-        from: "Ø§Ø²",
-        to: "ØªØ§",
-        defaultPlaceholder: "Ø§Ù†ØªØ®Ø§Ø¨...",
-        digitSeparator: "ØŒ",
+        nextMonth: "ماه بعد",
+        previousMonth: "ماه قبل",
+        openMonthSelector: "نمایش انتخابگر ماه",
+        openYearSelector: "نمایش انتخابگر سال",
+        closeMonthSelector: "بستن انتخابگر ماه",
+        closeYearSelector: "بستن انتخابگر ماه",
+        from: "از",
+        to: "تا",
+        defaultPlaceholder: "انتخاب...",
+        digitSeparator: "،",
         yearLetterSkip: -2,
         isRtl: !0
     }
