@@ -917,6 +917,9 @@ var Calendar = function (e) {
 
             yearNumber = e
             T(_objectSpread2({}, E, {activeDate: _objectSpread2({}, j, {year: e}), isYearSelectorOpen: !1}))
+            
+            monthNumber = j.month;
+            getCalendarDate(monthNumber, yearNumber)
 
         },
         selectorStartingYear: _,
