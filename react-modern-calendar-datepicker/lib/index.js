@@ -835,7 +835,7 @@ var ad , getCalendarDate , monthNumber, yearNumber, dateJ ;
 
 var Calendar = function (e) {
     ad = e.adviserID;
-    getCalendarDate=e.getCalendarDate;
+    getCalendarDate=e.getCalendarDate ? e.getCalendarDate : null;
 
 
     var t = e.value, r = e.onChange, n = e.onDisabledDayError, a = e.calendarClassName, o = e.calendarTodayClassName,
@@ -917,10 +917,11 @@ var Calendar = function (e) {
 
             yearNumber = e
             T(_objectSpread2({}, E, {activeDate: _objectSpread2({}, j, {year: e}), isYearSelectorOpen: !1}))
-            
-            monthNumber = j.month;
-            getCalendarDate(monthNumber, yearNumber)
 
+            monthNumber = j.month;
+            if (getCalendarDate !==null) {
+                getCalendarDate(monthNumber, yearNumber)
+            }
         },
         selectorStartingYear: _,
         selectorEndingYear: h,
@@ -1140,10 +1141,14 @@ var localeLanguages = {
             if (monthNumber !== 00) {
 
                 yearNumber = dateJ.year;
-                getCalendarDate(monthNumber, yearNumber)
+                if (getCalendarDate !== null) {
+                    getCalendarDate(monthNumber, yearNumber)
+                }
             } else if (monthNumber === 00) {
                 yearNumber = dateJ.year;
-                getCalendarDate(12, yearNumber - 1)
+                if (getCalendarDate !== null) {
+                    getCalendarDate(12, yearNumber - 1)
+                }
             }
 
             R("PREVIOUS")
@@ -1162,10 +1167,14 @@ var localeLanguages = {
             if (monthNumber !== 13) {
 
                 yearNumber = dateJ.year;
-                getCalendarDate(monthNumber, yearNumber)
+                if (getCalendarDate !== null) {
+                    getCalendarDate(monthNumber, yearNumber)
+                }
             } else if (monthNumber === 13) {
                 yearNumber = dateJ.year;
-                getCalendarDate(01, yearNumber + 1)
+                if (getCalendarDate !== null) {
+                    getCalendarDate(01, yearNumber + 1)
+                }
             }
 
             R("NEXT")
@@ -1208,7 +1217,9 @@ var localeLanguages = {
         c.current.classList[e]("-open")
         monthNumber = t.month;
         yearNumber = t.year;
-        getCalendarDate(monthNumber, yearNumber)
+        if (getCalendarDate !== null) {
+            getCalendarDate(monthNumber, yearNumber)
+        }
     }), [o]);
     var s = useLocaleUtils(i), l = s.getMonthNumber, u = s.isBeforeDate, p = useLocaleLanguage(i).months;
     return React__default.createElement("div", _extends({
@@ -1591,7 +1602,7 @@ var DatePicker = function (e) {
         locale: T,
         shouldHighlightWeekends: D,
         adviserID: ad,
-        getCalendarDate: getCalendarDate,
+        getCalendarDate: getCalendarDate ? getCalendarDate : null,
         monthNumber: monthNumber,
         yearNumber: yearNumber,
 
