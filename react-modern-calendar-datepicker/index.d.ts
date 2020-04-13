@@ -30,7 +30,7 @@ export interface CalendarProps<TValue extends Value> {
   calendarRangeStartClassName?: string;
   calendarRangeBetweenClassName?: string;
   calendarRangeEndClassName?: string;
-  adviserID?: number;
+  // adviserID?: number;
   getCalendarDate?: number;
   getCalendarDay?: number;
 }
