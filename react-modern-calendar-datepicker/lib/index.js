@@ -834,7 +834,7 @@ function mod(e, t) {
 var ad , getCalendarDate , monthNumber, yearNumber, dateJ ;
 
 var Calendar = function (e) {
-    ad = e.adviserID;
+    // ad = e.adviserID;
     getCalendarDate=e.getCalendarDate ? e.getCalendarDate : null;
 
 
@@ -1446,7 +1446,7 @@ Calendar.defaultProps = {
     calendarClassName: "",
     locale: "en",
     value: null,
-    adviserID: null,
+    // adviserID: null,
     getCalendarDay: null,
 }, Calendar.propTypes = {
     value: propTypes.oneOfType([propTypes.shape(DAY_SHAPE), propTypes.shape({
@@ -1518,7 +1518,7 @@ var DatePicker = function (e) {
         f = e.calendarRangeEndClassName, m = e.disabledDays, y = e.onDisabledDayError, _ = e.colorPrimary,
         h = e.colorPrimaryLight, g = e.slideAnimationDuration, v = e.minimumDate, S = e.maximumDate,
         b = e.selectorStartingYear, E = e.selectorEndingYear, T = e.locale, D = e.shouldHighlightWeekends,
-        ad = e.adviserID,
+        // ad = e.adviserID,
         I = React.useRef(null), C = React.useRef(null), R = React.useRef(!1), w = _slicedToArray(React.useState(!1), 2),
         A = w[0], P = w[1];
     React.useEffect((function () {
